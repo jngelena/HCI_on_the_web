@@ -27,7 +27,7 @@ class _HomeState extends State<Home> {
         child: currentScreen,
         bucket: bucket,
       ),
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: FloatingActionButton( //add button
         child: Icon(Icons.add),
         onPressed: () {},
       ),
@@ -40,11 +40,12 @@ class _HomeState extends State<Home> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
+              //left bluetooth
               Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   MaterialButton(
-                    minWidth: 40,
+                    minWidth: 60,
                     onPressed: () {
                       setState(() {
                         currentScreen = Dashboard();
@@ -57,6 +58,38 @@ class _HomeState extends State<Home> {
                         Icon(
                           Icons.bluetooth,
                           color: currentTab == 0 ? Colors.blueAccent : Colors.grey,
+                        ),
+                        Text(
+                          'BLE',
+                          style: TextStyle(color: currentTab == 0 ? Colors.blueAccent : Colors.grey),
+                        )
+                      ],
+                    ),
+                    )
+                ],
+              ),
+              //right history
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  MaterialButton(
+                    minWidth: 60,
+                    onPressed: () {
+                      setState(() {
+                        currentScreen = Chat();
+                        currentTab = 1;
+                      });
+                    },
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.history,
+                          color: currentTab == 1 ? Colors.blueAccent : Colors.grey,
+                        ),
+                        Text(
+                          'History',
+                          style: TextStyle(color: currentTab == 1 ? Colors.blueAccent : Colors.grey),
                         )
                       ],
                     ),
